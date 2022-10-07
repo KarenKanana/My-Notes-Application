@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 let getTime = (mynote) => {
     return new Date(mynote.updated).toLocaleDateString()
@@ -31,5 +32,16 @@ let getContent = (mynote) => {
 
 }
 
+const ListItem = ({ mynote }) => {
+    return (
+        <Link to={`/note/${mynote.id}`}>
+            <div className="my-notes">
+                <h3>{getTitle(mynote)}</h3>
+                <p><span>{getTime(mynote)}</span></p>
+            </div>
+        </Link>
+    )
+}
 
+export default ListItem;
 
