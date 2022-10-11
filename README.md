@@ -12,7 +12,7 @@
 
 
 ## Project Description
-This is a Notes Application that enables the user to store notes for futr reference.
+This is a Notes Application that enables the user to store notes for future reference.
 
 
 ## Features
