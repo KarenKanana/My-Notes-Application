@@ -1,28 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-let getTime = (mynote) => {
-    return new Date(mynote.updated).toLocaleDateString()
+let getTime = (note) => {
+    return new Date(note.updated).toLocaleDateString()
 }
+let getTitle = (note) => {
+    
 
-
-let getTitle = (mynote) => {
-    const title = mynote.body.split('\n')[0]
+    const title = note.body.split('\n')[0]
     if (title.length > 45) {
         return title.slice(0, 45)
     }
     return title
 }
 
-let getContent = (mynote) => {
-    
-   
-
-    let title = getTitle(mynote)
-    let content = mynote.body.replaceAll('\n', '')
+let getContent = (note) => {
+    //Get content after title
+    let title = getTitle(note)
+    let content = note.body.replaceAll('\n', '')
     content = content.replaceAll(title, '')
 
-    
+    //Slice content and add three dots in over 45 characters to show there is more
     if (content.length > 45) {
         return content.slice(0, 45) + '...'
     } else {
@@ -31,16 +29,16 @@ let getContent = (mynote) => {
 
 }
 
-const ListItem = ({ mynote }) => {
+
+const ListItem = ({ note }) => {
     return (
-        <Link to={`/note/${mynote.id}`}>
-            <div className="my-notes">
-                <h3>{getTitle(mynote)}</h3>
-                <p><span>{getTime(mynote)}</span></p>
+        <Link to={`/note/${note.id}`}>
+            <div className="notes-list-item">
+                <h3>{getTitle(note)}</h3>
+                <p><span>{getTime(note)}</span></p>
             </div>
         </Link>
     )
 }
 
-export default ListItem;
-
+export default ListItem
