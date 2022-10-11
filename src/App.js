@@ -4,10 +4,10 @@ import {
   Routes,
 } from "react-router-dom";
 
-import NotePage from './Components/NotesPage'
+import NotePage from './Pages/NotePage'
 import './App.css';
-import Header from './components/Header'
-import NotesApp from './Components/NotesApp'
+import Header from './Components/Header'
+import NotesApp from "./Pages/NotesApp";
 
 function App() {
   return (
@@ -16,8 +16,9 @@ function App() {
     <Header />
     <Router>
     <Routes>
-     <Route path="/" element ={ <NotesApp/> } ></Route>
+    <Route path="/" element ={ <NotesApp/> } ></Route>
      <Route path="/note/:id" element ={ <NotePage/> } ></Route>
+
 
     </Routes>
     </Router>
